@@ -1,0 +1,30 @@
+{
+  "updated": 1652856040.214,
+  "current_price": 2043.33,
+  "data": {
+    "OpenSea": {
+      "total_tco2": 702172.6818732573,
+      "daily_tco2": 3058.1025390625
+    },
+    "Nifty Gateway": {
+      "total_tco2": 47888.349326985306,
+      "daily_tco2": 36.86108643668039
+    },
+    "Rarible": {
+      "total_tco2": 25237.08458995825,
+      "daily_tco2": 22.683112825666154
+    },
+    "Foundation": {
+      "total_tco2": 19269.502162134275,
+      "daily_tco2": 62.000082288469585
+    },
+    "Makersplace": {
+      "total_tco2": 3133.6205913408485,
+      "daily_tco2": 1.2724519201687403
+    },
+    "SuperRare": {
+      "total_tco2": 3294.5496398824034,
+      "daily_tco2": 2.455156752041408
+    }
+  }
+}
