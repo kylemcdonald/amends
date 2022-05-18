@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+	font-size: 21px;
+	text-decoration-thickness: 5%;
+}
+
+@media only screen and (max-width: 600px) {
+	html {
+		font-size: 18px;
+	}
+}
+
+html, body {
+	/* background: linear-gradient(0deg, rgb(65,100,85) 0%, rgb(30,36,35) 100%); */
+	background: linear-gradient(0deg, rgb(30, 36, 35) 0%, rgb(65, 100, 85) 100%);
+}
+
+input[type="checkbox"] {
+	background-image: url("assets/zoom-in.svg");
+}
+
+input[type="checkbox"]:checked {
+	background-image: url("assets/zoom-out.svg");
+}
+
+.document-list a:before {
+	content: "";
+	display: block;
+	background: url("assets/document.svg") no-repeat;
+	background-size: contain;
+	position: relative;
+	margin-right: 0.3em;
+	top: 0.5em;
+	width: 1.2em;
+	height: 1.2em;
+	float: left;
+}
+
+th {
+	text-align: right;
+	font-style: italic;
+}
+
+td, th {
+	padding: 0 0.3em;
+}
+
+.amp {
+	font-family: 'Playfair Display', serif;
+}
+
+.atropos {
+	width: 50%;
+	position: absolute;
+	transform-origin: center center;
+}
+
+.atropos-opensea {
+	transform: translateX(15%) translateY(15%) rotate(-12deg);
+}
+
+.atropos-rarible {
+	transform: translateX(50%) translateY(50%);
+}
+
+.atropos-foundation {
+	transform: translateX(85%) translateY(85%) rotate(12deg);
+}

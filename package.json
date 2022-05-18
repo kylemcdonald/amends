@@ -1,0 +1,23 @@
+{
+  "name": "amends",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "build": "node estimate_tco2.js > src/lib/tco2.json && svelte-kit build",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "1.0.0-next.28",
+    "@sveltejs/kit": "1.0.0-next.291",
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.6",
+    "svelte": "^3.46.0",
+    "tailwindcss": "^3.0.22"
+  },
+  "type": "module",
+  "dependencies": {
+    "atropos": "^1.0.2",
+    "danfojs-node": "^1.0.2"
+  }
+}
