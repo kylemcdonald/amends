@@ -170,6 +170,8 @@
 		1 /
 		average(variable_providers.map((e) => 1 / e.provider.price_per_tco2));
 
+	let printed = false;
+
 	async function updateStats() {
 		const ms_per_day = 8.64e7;
 		const current_time = new Date();
@@ -177,6 +179,8 @@
 		const ms_since_updated =
 			current_time.getTime() - last_updated.getTime();
 		const pct_of_day = ms_since_updated / ms_per_day;
+		let combined_tco2 = 0;
+		let combined_usd = 0;
 
 		marketplaces.forEach((e) => {
 			const value = tco2.data[e.name];
@@ -200,6 +204,9 @@
 			const for_creator = (for_overhead * e.royalties) / total_overhead;
 
 			const eth = convert_usd_to_eth(usd);
+
+			combined_tco2 += current_tco2;
+			combined_usd += usd;
 
 			e.total_tco2 = current_tco2;
 			e.total_usd = usd;
@@ -255,6 +262,17 @@
 				`${format_short(100 * e.overhead, 1)}% ${e.name} Fee`,
 			]);
 		});
+
+		if (!printed) {
+			console.log("Total tCO2: " + combined_tco2.toLocaleString());
+			console.log(
+				"Total USD: $" +
+					combined_usd.toLocaleString(undefined, {
+						maximumFractionDigits: 2,
+					})
+			);
+			printed = true;
+		}
 
 		// tell svelte we need to update
 		marketplaces = marketplaces;
