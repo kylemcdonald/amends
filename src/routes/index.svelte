@@ -61,7 +61,7 @@
 		},
 	];
 
-	const merge_date = new Date(Date.UTC(2022, 9, 18));
+	const merge_date = new Date(Date.UTC(2022, 9, 15, 4, 58, 56));
 	const nonprofit_overhead = 0.1;
 	const exchange_overhead = 0.015;
 
