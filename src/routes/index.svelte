@@ -61,7 +61,7 @@
 		},
 	];
 
-	const merge_date = new Date(Date.UTC(2022, 8, 15, 2, 38, 0));
+	const merge_date = new Date(Date.UTC(2022, 8, 15, 5, 14, 0));
 	const nonprofit_overhead = 0.1;
 	const exchange_overhead = 0.015;
 
@@ -310,8 +310,8 @@
 >
 	<div class="flex flex-col gap-4 max-w-xs leading-relaxed fade-on-scroll">
 		<h2 class="text-2xl font-thin">
-			{countdown.days} <span class="italic">days</span>
-			<span class="amp">&</span>
+			<!-- {countdown.days} <span class="italic">days</span>
+			<span class="amp">&</span> -->
 			{countdown.hhmmss} <span class="italic">to merge</span>
 		</h2>
 		<p>
