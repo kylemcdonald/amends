@@ -174,7 +174,8 @@
 
 	async function updateStats() {
 		const ms_per_day = 8.64e7;
-		const current_time = new Date();
+// 		const current_time = new Date();
+		const current_time = new Date(Date.UTC(2022, 8, 15, 6, 42, 42));
 		const last_updated = new Date(tco2.updated * 1000);
 		const ms_since_updated =
 			current_time.getTime() - last_updated.getTime();
@@ -309,11 +310,12 @@
 	class="snap-start flex flex-row flex-wrap min-h-screen p-4 gap-4 justify-evenly items-center font-extralight"
 >
 	<div class="flex flex-col gap-4 max-w-xs leading-relaxed fade-on-scroll">
+		<!-- 
 		<h2 class="text-2xl font-thin">
-			<!-- {countdown.days} <span class="italic">days</span>
-			<span class="amp">&</span> -->
+			{countdown.days} <span class="italic">days</span>
+			<span class="amp">&</span> 
 			{countdown.hhmmss} <span class="italic">to merge</span>
-		</h2>
+		</h2>-->
 		<p>
 			The Ethereum blockchain may soon transition away from the
 			high-emissions proof-of-work algorithm. But to escape the worst
