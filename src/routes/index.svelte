@@ -27,7 +27,7 @@
 		},
 		{
 			id: "rarible",
-			overhead: 0.025,
+			overhead: 0.01,
 			royalties: 0,
 			volatility: 0,
 			purchased_offsets: 1000,
