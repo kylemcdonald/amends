@@ -590,6 +590,10 @@
 			<td>Lisa Kori</td>
 		</tr>
 		<tr>
+			<th>Creative Assistant</th>
+			<td>Olive Kimoto</td>
+		</tr>
+		<tr>
 			<th>Sponsored by</th>
 			<td>Gray Area</td>
 		</tr>
