@@ -176,10 +176,11 @@
 		const ms_per_day = 8.64e7;
 // 		const current_time = new Date();
 		const current_time = new Date(Date.UTC(2022, 8, 15, 6, 42, 42));
-		const last_updated = new Date(tco2.updated * 1000);
+		// const last_updated = new Date(tco2.updated * 1000);
+		const last_updated = current_time;
 		const ms_since_updated =
 			current_time.getTime() - last_updated.getTime();
-		const pct_of_day = ms_since_updated / ms_per_day;
+		const pct_of_day = last_updated == current_time ? 0 : ms_since_updated / ms_per_day
 		let combined_tco2 = 0;
 		let combined_usd = 0;
 
