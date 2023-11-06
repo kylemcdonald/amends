@@ -174,13 +174,14 @@
 
 	async function updateStats() {
 		const ms_per_day = 8.64e7;
-// 		const current_time = new Date();
+		// const current_time = new Date();
 		const current_time = new Date(Date.UTC(2022, 8, 15, 6, 42, 42));
 		// const last_updated = new Date(tco2.updated * 1000);
 		const last_updated = current_time;
 		const ms_since_updated =
 			current_time.getTime() - last_updated.getTime();
-		const pct_of_day = last_updated == current_time ? 0 : ms_since_updated / ms_per_day
+		const pct_of_day =
+			last_updated == current_time ? 0 : ms_since_updated / ms_per_day;
 		let combined_tco2 = 0;
 		let combined_usd = 0;
 
@@ -318,9 +319,12 @@
 			{countdown.hhmmss} <span class="italic">to merge</span>
 		</h2>-->
 		<p>
-			The Ethereum blockchain may soon transition away from the
-			high-emissions proof-of-work algorithm. But to escape the worst
-			impacts of climate change, we must go beyond emissions reductions,
+			The Ethereum blockchain has <a
+				href="https://ethereum.org/en/roadmap/merge/"
+				target="_blank"
+				class="underline">transitioned away</a
+			> from the high-emissions proof-of-work algorithm. But to escape the
+			worst impacts of climate change, we must go beyond emissions reductions,
 			and also remove past emissions from the atmosphere.
 		</p>
 		<p>
@@ -333,12 +337,10 @@
 			NFT marketplaces.
 		</p>
 		<p>
-			When Ethereum <a
-				href="https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/"
-				target="_blank"
-				class="underline">transitions away from proof-of-work</a
-			>, <span class="italic">Amends</span>
-			will go on sale. The work is priced to fund complete carbon mitigation.
+			<span class="italic">Amends</span>
+			went on sale immediately after Ethereum left proof-of-work.
+			<span class="italic">Amends</span>
+			is priced to fund complete carbon mitigation.
 		</p>
 		<p>
 			Handmade glass blocks, filled with artifacts from each removal
