@@ -69,3 +69,38 @@ td, th {
 .atropos-foundation {
 	transform: translateX(85%) translateY(85%) rotate(12deg);
 }
+
+.image-container {
+	position: relative;
+	width: 100%; /* or any specific width you want */
+	display: inline-block; /* This allows the container to wrap around the content */
+  }
+  
+  .main-image,
+  .hover-image {
+	display: block;
+	width: 100%;
+	height: auto;
+	transition: opacity 0.3s ease-in-out;
+  }
+  
+  .main-image {
+	position: relative;
+	z-index: 1;
+  }
+  
+  .hover-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	z-index: 2;
+  }
+  
+  .image-container:hover .main-image {
+	opacity: 0;
+  }
+  
+  .image-container:hover .hover-image {
+	opacity: 1;
+  }

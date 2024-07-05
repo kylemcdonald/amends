@@ -158,13 +158,13 @@
 	const fixed_tco2 = sum(marketplaces.map((e) => e.provider.fixed_tco2));
 	const for_fixed_tco2 = sum(
 		marketplaces.map(
-			(e) => e.provider.fixed_tco2 * e.provider.price_per_tco2
-		)
+			(e) => e.provider.fixed_tco2 * e.provider.price_per_tco2,
+		),
 	);
 
 	// average the price from providers who don't provide fixed amounts
 	const variable_providers = marketplaces.filter(
-		(e) => e.provider.fixed_tco2 == 0
+		(e) => e.provider.fixed_tco2 == 0,
 	);
 	const usd_per_tco2 =
 		1 /
@@ -241,7 +241,7 @@
 				for_nonprofit,
 				`${format_short(
 					100 * nonprofit_overhead,
-					1
+					1,
 				)}% Fiscal Sponsorship`,
 			]);
 			e.breakdown.push([
@@ -272,7 +272,7 @@
 				"Total USD: $" +
 					combined_usd.toLocaleString(undefined, {
 						maximumFractionDigits: 2,
-					})
+					}),
 			);
 			printed = true;
 		}
@@ -344,8 +344,8 @@
 		</p>
 		<p>
 			Handmade glass blocks, filled with artifacts from each removal
-			process, will be revealed a month after launch. These sculptures
-			will be shipped to the owners of the NFTs—if they burn their NFT.
+			process, were revealed after launch. These sculptures will be
+			shipped to the owners of the NFTs—if they burn their NFT.
 		</p>
 	</div>
 	<div
@@ -366,11 +366,18 @@
 	>
 		<div class="max-w-sm xl:max-w-md 2xl:max-w-lg fade-on-scroll">
 			<a href={links[e.id]} target="_blank">
-				<img
-					src="images/{e.id}.jpg"
-					alt={e.alt}
-					class="rounded-2xl shadow-xl ease-in-out hover:scale-105 duration-300"
-				/>
+				<div class="image-container">
+					<img
+						src="images/{e.id}-real.jpg"
+						alt={e.alt}
+						class="rounded-2xl shadow-xl main-image"
+					/>
+					<img
+						src="images/{e.id}.jpg"
+						alt={e.alt}
+						class="rounded-2xl shadow-xl hover-image"
+					/>
+				</div>
 			</a>
 		</div>
 		<div class="max-w-xs flex flex-col gap-3 text-black fade-on-scroll">
