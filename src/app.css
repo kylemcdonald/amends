@@ -59,15 +59,19 @@ td, th {
 }
 
 .atropos-opensea {
-	transform: translateX(15%) translateY(15%) rotate(-12deg);
+	transform: translateX(5%) translateY(5%) rotate(-10deg);
 }
 
 .atropos-rarible {
-	transform: translateX(50%) translateY(50%);
+	transform: translateX(90%) translateY(0) rotate(8deg);
 }
 
 .atropos-foundation {
-	transform: translateX(85%) translateY(85%) rotate(12deg);
+	transform: translateX(0) translateY(90%) rotate(7deg);
+}
+
+.atropos-amendment {
+	transform: translateX(90%) translateY(90%) rotate(-7deg);
 }
 
 .image-container {

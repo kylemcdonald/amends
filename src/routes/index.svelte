@@ -61,6 +61,18 @@
 		},
 	];
 
+	const amendment = {
+		id: "amendment",
+		name: "SuperRare",
+		alt: "A yellow refrigerant cylinder painted as a duckling against a dark green background.",
+		total_tco2: Math.round(tco2.data.SuperRare.total_tco2),
+		mitigation_target: 76200,
+		preauction_price: 127000,
+		auction_target: 254000,
+	};
+
+	const hero_works = [...marketplaces, amendment];
+
 	const merge_date = new Date(Date.UTC(2022, 8, 15, 5, 14, 0));
 	const nonprofit_overhead = 0.1;
 	const exchange_overhead = 0.015;
@@ -319,39 +331,39 @@
 			{countdown.hhmmss} <span class="italic">to merge</span>
 		</h2>-->
 		<p>
-			The Ethereum blockchain has <a
+			During its proof-of-work era, Ethereum emitted nearly 20 million
+			metric tons of CO₂. The blockchain has since <a
 				href="https://ethereum.org/en/roadmap/merge/"
 				target="_blank"
 				class="underline">transitioned away</a
-			> from the high-emissions proof-of-work algorithm. But to escape the
-			worst impacts of climate change, we must go beyond emissions reductions,
-			and also remove past emissions from the atmosphere.
+			> from that high-emissions algorithm. But avoiding the worst impacts of
+			climate change also requires addressing past emissions.
 		</p>
 		<p>
-			<span class="italic">Amends</span> is three digital sculptures by
+			<span class="italic">Amends</span> is a series by
 			<a
 				href="https://kylemcdonald.net/"
 				target="_blank"
 				class="underline">Kyle McDonald</a
-			>, designed to capture all historical emissions from three major art
-			NFT marketplaces.
+			>, designed to account for and repair the historical emissions of major
+			art NFT marketplaces.
 		</p>
 		<p>
-			<span class="italic">Amends</span>
-			went on sale immediately after Ethereum left proof-of-work.
-			<span class="italic">Amends</span>
-			is priced to fund complete carbon mitigation.
+			The original three digital sculptures addressed OpenSea, Rarible, and
+			Foundation. In 2026, a fourth work—<span class="italic">Amendment</span
+			>—extended the project to SuperRare.
 		</p>
 		<p>
-			Handmade glass blocks, filled with artifacts from each removal
-			process, were revealed after launch. These sculptures will be
-			shipped to the owners of the NFTs—if they burn their NFT.
+			The original NFTs went on sale after Ethereum left proof-of-work and
+			were priced to fund complete carbon mitigation. Their handmade glass
+			sculptures are shipped to their owners if the corresponding NFT is
+			burned.
 		</p>
 	</div>
 	<div
-		class="relative w-[24rem] h-[24rem] xl:w-[30rem] xl:h-[30rem] 2xl:w-[36rem] 2xl:h-[36rem] fade-on-scroll"
+		class="relative w-[19rem] h-[19rem] sm:w-[24rem] sm:h-[24rem] xl:w-[30rem] xl:h-[30rem] 2xl:w-[36rem] 2xl:h-[36rem] fade-on-scroll"
 	>
-		{#each marketplaces as e}
+		{#each hero_works as e}
 			<Atropos class="atropos atropos-{e.id}" innerClass="rounded-2xl">
 				<img src="images/{e.id}.jpg" alt={e.alt} />
 			</Atropos>
@@ -359,10 +371,100 @@
 	</div>
 </section>
 
-{#each marketplaces as e}
+<section
+	id="amendment"
+	aria-label="Amendment for SuperRare"
+	class="snap-start flex flex-row flex-wrap min-h-screen p-4 gap-10 bg-white justify-evenly items-center text-black"
+>
+	<figure class="max-w-sm xl:max-w-md 2xl:max-w-lg fade-on-scroll">
+		<!-- svelte-ignore a11y-media-has-caption -->
+		<video
+			class="block w-full h-auto rounded-2xl shadow-xl"
+			poster="images/amendment.jpg"
+			preload="metadata"
+			autoplay
+			muted
+			loop
+			playsinline
+			controls
+			aria-label="Amendment: the yellow refrigerant cylinder rotates and progressively corrodes."
+		>
+			<source src="video/amendment-square.mp4" type="video/mp4" />
+		</video>
+		<figcaption class="sr-only">
+			Amendment visualizes a yellow refrigerant cylinder painted as a
+			duckling, from intact to almost completely corroded.
+		</figcaption>
+	</figure>
+
+	<div class="max-w-sm flex flex-col gap-3 fade-on-scroll">
+		<p class="font-mono text-xs uppercase tracking-widest">2026 extension</p>
+		<h1 class="text-3xl font-light">
+			<a href={links.amendment} target="_blank">
+				<span class="italic">Amendment</span> for SuperRare
+			</a>
+		</h1>
+
+		<p>
+			<span class="italic">Amendment</span> is a real-time digital sculpture
+			designed to address SuperRare’s approximately {amendment.total_tco2.toLocaleString()}
+			tCO₂e share of Ethereum’s proof-of-work emissions. At $21 per tCO₂e,
+			complete mitigation through
+			<a href="https://tradewater.us/" target="_blank" class="underline"
+				>Tradewater</a
+			>
+			requires ${amendment.mitigation_target.toLocaleString()}.
+		</p>
+
+		<p>
+			Based on Tradewater’s “Baby Bird Cylinder,” the work tracks its sale
+			price. At the full target, the duckling remains indefinitely; below
+			that price, it slowly corrodes and eventually disappears.
+		</p>
+
+		<div
+			class="font-mono border-2 p-4 tracking-tight"
+			role="group"
+			aria-label="Auction target allocation"
+		>
+			<div>
+				<span class="inline-block w-2">$</span>
+				{amendment.auction_target.toLocaleString()}
+				<span class="text-xs">public auction target</span>
+			</div>
+			<div class="mt-3 grid grid-cols-[auto_1fr] gap-x-3 text-xs">
+				<span>40%</span><span>SuperRare — $101,600</span>
+				<span>30%</span><span>Tradewater — $76,200</span>
+				<span>30%</span><span>Artist — $76,200</span>
+			</div>
+		</div>
+
+		<p class="text-sm">
+			Before the public auction, the work may be acquired for
+			${amendment.preauction_price.toLocaleString()}, with 40% going to
+			SuperRare and 60% to Tradewater. If unsold, the auction runs September
+			11–18, 2026, opening and closing at 12 p.m. ET. Secondary-market
+			royalties received by the artist will go to Tradewater until its
+			funding target is met.
+		</p>
+
+		<div class="flex flex-wrap gap-x-4 gap-y-1 italic">
+			<a href={links.amendment} target="_blank" class="underline"
+				>SuperRare listing</a
+			>
+			<a
+				href="/documents/amendment-tradewater-agreement.pdf"
+				target="_blank"
+				class="underline">Signed agreement</a
+			>
+		</div>
+	</div>
+</section>
+
+{#each marketplaces as e, i}
 	<section
 		aria-label="Amends for {e.name}"
-		class="snap-start flex odd:flex-row-reverse even:flex-row flex-wrap min-h-screen p-4 gap-10 bg-white justify-evenly items-center"
+		class="snap-start flex {i % 2 === 0 ? 'flex-row-reverse' : 'flex-row'} flex-wrap min-h-screen p-4 gap-10 bg-white justify-evenly items-center"
 	>
 		<div class="max-w-sm xl:max-w-md 2xl:max-w-lg fade-on-scroll">
 			<a href={links[e.id]} target="_blank">
@@ -386,11 +488,11 @@
 			</h1>
 			<div class="relative font-mono border-2 p-4 tracking-tight">
 				<input
-					id="breakdown"
+					id="breakdown-{e.id}"
 					type="checkbox"
 					class="peer absolute right-0 bottom-0 w-8 h-8 appearance-none cursor-pointer bg-no-repeat bg-center"
 				/>
-				<label for="breakdown" class="sr-only"
+				<label for="breakdown-{e.id}" class="sr-only"
 					>Toggle price breakdown</label
 				>
 				<div class="block peer-checked:hidden">
@@ -418,15 +520,11 @@
 					{#each e.breakdown as b}
 						<div>
 							<span class="inline-block w-2">$</span>
-							<span id="{e.id}-total-usd"
-								>{@html format(b[0])}</span
-							>
+							<span>{@html format(b[0])}</span>
 						</div>
 						<div>
 							<span class="inline-block w-2">&nbsp;</span>
-							<span id="{e.id}-total-usd" class="text-xs"
-								>{@html b[1]}</span
-							>
+							<span class="text-xs">{@html b[1]}</span>
 						</div>
 					{/each}
 				</div>
@@ -455,10 +553,10 @@
 >
 	<div class="flex flex-col gap-4 max-w-xs leading-relaxed fade-on-scroll">
 		<p>
-			The work is priced at a rate that will pay for a mix of carbon
-			removal and reduction from three different providers, plus overhead
-			from the marketplaces and for our non-profit partner facilitating
-			the auction.
+			The works are priced to pay for carbon removal and mitigation, along
+			with the marketplace and project costs documented for each release.
+			The 2022 works used three providers; <span class="italic">Amendment</span>
+			works exclusively with Tradewater.
 		</p>
 		<p>
 			Emissions totals are based on a bottom-up estimate of Ethereum
@@ -476,6 +574,14 @@
 	<div
 		class="max-w-xs document-list italic text-xl leading-loose fade-on-scroll"
 	>
+		<h2>
+			<a
+				class="underline"
+				target="_blank"
+				href="/documents/amendment-tradewater-agreement.pdf"
+				>Amendment × Tradewater agreement</a
+			>
+		</h2>
 		<h2>
 			<a
 				class="underline"
