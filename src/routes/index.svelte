@@ -65,10 +65,14 @@
 		id: "amendment",
 		name: "SuperRare",
 		alt: "A yellow refrigerant cylinder painted as a duckling against a dark green background.",
-		total_tco2: Math.round(tco2.data.SuperRare.total_tco2),
+		total_tco2: tco2.data.SuperRare.total_tco2,
 		mitigation_target: 76200,
-		preauction_price: 127000,
 		auction_target: 254000,
+		breakdown: [
+			[101600, "40% SuperRare"],
+			[76200, "30% Tradewater"],
+			[76200, "30% Artist"],
+		],
 	};
 
 	const hero_works = [...marketplaces, amendment];
@@ -350,8 +354,8 @@
 		</p>
 		<p>
 			The original three digital sculptures addressed OpenSea, Rarible, and
-			Foundation. In 2026, a fourth work—<span class="italic">Amendment</span
-			>—extended the project to SuperRare.
+			Foundation. In 2026, a fourth work—Amendment—extended the project to
+			SuperRare.
 		</p>
 		<p>
 			The original NFTs went on sale after Ethereum left proof-of-work and
@@ -397,23 +401,18 @@
 		</figcaption>
 	</figure>
 
-	<div class="max-w-sm flex flex-col gap-3 fade-on-scroll">
-		<p class="font-mono text-xs uppercase tracking-widest">2026 extension</p>
+	<div class="max-w-xs flex flex-col gap-3 fade-on-scroll">
 		<h1 class="text-3xl font-light">
-			<a href={links.amendment} target="_blank">
-				<span class="italic">Amendment</span> for SuperRare
-			</a>
+			<a href={links.amendment} target="_blank">Amendment for SuperRare</a>
 		</h1>
 
 		<p>
-			<span class="italic">Amendment</span> is a real-time digital sculpture
-			designed to address SuperRare’s approximately {amendment.total_tco2.toLocaleString()}
-			tCO₂e share of Ethereum’s proof-of-work emissions. At $21 per tCO₂e,
-			complete mitigation through
-			<a href="https://tradewater.us/" target="_blank" class="underline"
-				>Tradewater</a
-			>
-			requires ${amendment.mitigation_target.toLocaleString()}.
+			Amendment is a real-time digital sculpture designed to address
+			SuperRare’s approximately
+			{Math.round(amendment.total_tco2).toLocaleString()} tCO₂e share of
+			Ethereum’s proof-of-work emissions. At $21 per tCO₂e, complete mitigation
+			through Tradewater requires
+			${amendment.mitigation_target.toLocaleString()}.
 		</p>
 
 		<p>
@@ -423,40 +422,62 @@
 		</p>
 
 		<div
-			class="font-mono border-2 p-4 tracking-tight"
+			class="relative font-mono border-2 p-4 tracking-tight"
 			role="group"
-			aria-label="Auction target allocation"
+			aria-label="Amendment price receipt"
 		>
-			<div>
-				<span class="inline-block w-2">$</span>
-				{amendment.auction_target.toLocaleString()}
-				<span class="text-xs">public auction target</span>
+			<input
+				id="breakdown-amendment"
+				type="checkbox"
+				class="peer absolute right-0 bottom-0 w-8 h-8 appearance-none cursor-pointer bg-no-repeat bg-center"
+			/>
+			<label for="breakdown-amendment" class="sr-only"
+				>Toggle price breakdown</label
+			>
+			<div class="block peer-checked:hidden">
+				<div>
+					<span class="inline-block w-2">&nbsp;</span>
+					<span>{@html format(amendment.total_tco2, 3)}</span>
+					<tco2sym>tCO<sub>2</sub></tco2sym>
+				</div>
+				<div>
+					<span class="inline-block w-2">$</span>
+					<span>{@html format(amendment.auction_target)}</span>
+				</div>
+				<div>
+					<span class="inline-block w-2 font-sans">Ξ</span>
+					<span
+						>{@html format(
+							convert_usd_to_eth(amendment.auction_target),
+						)}</span
+					>
+				</div>
 			</div>
-			<div class="mt-3 grid grid-cols-[auto_1fr] gap-x-3 text-xs">
-				<span>40%</span><span>SuperRare — $101,600</span>
-				<span>30%</span><span>Tradewater — $76,200</span>
-				<span>30%</span><span>Artist — $76,200</span>
+			<div class="hidden peer-checked:block">
+				{#each amendment.breakdown as b}
+					<div>
+						<span class="inline-block w-2">$</span>
+						<span>{@html format(b[0])}</span>
+					</div>
+					<div>
+						<span class="inline-block w-2">&nbsp;</span>
+						<span class="text-xs">{b[1]}</span>
+					</div>
+				{/each}
 			</div>
 		</div>
 
-		<p class="text-sm">
-			Before the public auction, the work may be acquired for
-			${amendment.preauction_price.toLocaleString()}, with 40% going to
-			SuperRare and 60% to Tradewater. If unsold, the auction runs September
-			11–18, 2026, opening and closing at 12 p.m. ET. Secondary-market
-			royalties received by the artist will go to Tradewater until its
-			funding target is met.
-		</p>
-
-		<div class="flex flex-wrap gap-x-4 gap-y-1 italic">
-			<a href={links.amendment} target="_blank" class="underline"
-				>SuperRare listing</a
-			>
-			<a
-				href="/documents/amendment-tradewater-agreement.pdf"
-				target="_blank"
-				class="underline">Signed agreement</a
-			>
+		<div class="font-normal italic mb-[10rem] lg:mb-0">
+			<h2>
+				<a href="https://tradewater.us/" target="_blank" class="underline"
+					>About Tradewater</a
+				>
+			</h2>
+			<h2>
+				<a href={links.amendment} target="_blank" class="underline"
+					>SuperRare listing</a
+				>
+			</h2>
 		</div>
 	</div>
 </section>
@@ -555,8 +576,8 @@
 		<p>
 			The works are priced to pay for carbon removal and mitigation, along
 			with the marketplace and project costs documented for each release.
-			The 2022 works used three providers; <span class="italic">Amendment</span>
-			works exclusively with Tradewater.
+			The 2022 works used three providers; Amendment works exclusively with
+			Tradewater.
 		</p>
 		<p>
 			Emissions totals are based on a bottom-up estimate of Ethereum
@@ -576,7 +597,7 @@
 	>
 		<h2>
 			<a
-				class="underline"
+				class="underline not-italic"
 				target="_blank"
 				href="/documents/amendment-tradewater-agreement.pdf"
 				>Amendment × Tradewater agreement</a
